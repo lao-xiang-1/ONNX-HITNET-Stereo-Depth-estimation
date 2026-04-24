@@ -29,8 +29,8 @@ elif model_type == ModelType.eth3d:
 depth_estimator = HitNet(model_path, model_type, camera_config=camera_config)
 
 # Load images
-left_img = cv2.imread(r"D:\code_project\ONNX-HITNET-Stereo-Depth-estimation-main\left_rectified\1.jpg")
-right_img = cv2.imread(r"D:\code_project\ONNX-HITNET-Stereo-Depth-estimation-main\right_rectified\1.jpg")
+left_img = cv2.imread(r"./left_rectified/1.jpg")
+right_img = cv2.imread(r"./right_rectified/1.jpg")
 
 # ==========================================
 # 2. 核心计算：估算视差并转换为物理深度
