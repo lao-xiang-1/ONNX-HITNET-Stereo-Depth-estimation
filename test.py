@@ -11,6 +11,8 @@ from hitnet import HitNet, ModelType, CameraConfig
 FOCAL_LENGTH_PX =554.5482  # 焦距 (像素单位) - 请替换为你的真实焦距
 BASELINE_MM = 79.6753# 基线长度 (毫米) - 请替换为你的真实基距
 
+camera_config = CameraConfig(FOCAL_LENGTH_PX / 1000, BASELINE_MM) # rough estimate from the original calibration
+
 
 # Select model type 
 model_type = ModelType.middlebury
@@ -24,7 +26,7 @@ elif model_type == ModelType.eth3d:
     model_path = r"models/eth3d/saved_model_480x640/model_float32.onnx"
 
 # Initialize model
-depth_estimator = HitNet(model_path, model_type)
+depth_estimator = HitNet(model_path, model_type, camera_config=camera_config)
 
 # Load images
 left_img = cv2.imread(r"D:\code_project\ONNX-HITNET-Stereo-Depth-estimation-main\left_rectified\1.jpg")
